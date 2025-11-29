@@ -9,6 +9,6 @@ insert_final_newline = false
 max_line_length = unset
 tab_width = 4
 
-[{*.java,*.kts}]
+[{*.java,*.kts,*.yml}]
 indent_size = 2
 tab_width = 2
