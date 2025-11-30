@@ -9,89 +9,77 @@ import java.util.UUID;
 public interface LongCurrency extends LunaCurrency {
 
   @Override
-  default int intValue(UUID uuid) {
+  default int intValue(final UUID uuid) {
     return Math.clamp(this.longValue(uuid), Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
 
   @Override
-  default float floatValue(UUID uuid) {
+  default float floatValue(final UUID uuid) {
     return this.longValue(uuid);
   }
 
   @Override
-  default double doubleValue(UUID uuid) {
+  default double doubleValue(final UUID uuid) {
     return this.longValue(uuid);
   }
 
   @Override
-  default BigInteger bigIntValue(UUID uuid) {
+  default BigInteger bigIntValue(final UUID uuid) {
     return BigInteger.valueOf(this.longValue(uuid));
   }
 
   @Override
-  default BigDecimal bigDecimalValue(UUID uuid) {
+  default BigDecimal bigDecimalValue(final UUID uuid) {
     return BigDecimal.valueOf(this.longValue(uuid));
   }
 
   @Override
-  default int intValue(UUID uuid, int value) {
+  default int intValue(final UUID uuid, final int value) {
     return Math.clamp(this.longValue(uuid, value), Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
 
   @Override
-  default float floatValue(UUID uuid, float value) {
+  default float floatValue(final UUID uuid, final float value) {
     return this.longValue(uuid, Math.round(value));
   }
 
   @Override
-  default double doubleValue(UUID uuid, double value) {
+  default double doubleValue(final UUID uuid, final double value) {
     return this.longValue(uuid, Math.round(value));
   }
 
   @Override
-  default BigInteger bigIntValue(UUID uuid, BigInteger value) {
-    if (value.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) >= 0) {
-      return BigInteger.valueOf(this.longValue(uuid, Long.MAX_VALUE));
-    } else if (value.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) <= 0) {
-      return BigInteger.valueOf(this.longValue(uuid, Long.MIN_VALUE));
-    } else {
-      return BigInteger.valueOf(this.longValue(uuid, value.longValueExact()));
-    }
+  default BigInteger bigIntValue(final UUID uuid, final BigInteger value) {
+    return BigInteger.valueOf(this.longValue(uuid, ConversionUtils.downSampleToLong(value)));
   }
 
   @Override
-  default BigDecimal bigDecimalValue(UUID uuid, BigDecimal value) {
+  default BigDecimal bigDecimalValue(final UUID uuid, final BigDecimal value) {
     return BigDecimal.valueOf(this.doubleValue(uuid, value.doubleValue()));
   }
 
   @Override
-  default long addLongValue(UUID uuid, long value) {
+  default long addLongValue(final UUID uuid, final long value) {
     return this.addIntValue(uuid, Math.clamp(value, Integer.MIN_VALUE, Integer.MAX_VALUE));
   }
 
   @Override
-  default float addFloatValue(UUID uuid, float value) {
+  default float addFloatValue(final UUID uuid, final float value) {
     return this.addIntValue(uuid, Math.round(value));
   }
 
   @Override
-  default double addDoubleValue(UUID uuid, double value) {
+  default double addDoubleValue(final UUID uuid, final double value) {
     return this.addLongValue(uuid, Math.round(value));
   }
 
   @Override
-  default BigInteger addBigIntValue(UUID uuid, BigInteger value) {
-    if (value.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) >= 0) {
-      return BigInteger.valueOf(this.addLongValue(uuid, Long.MAX_VALUE));
-    } else if (value.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) <= 0) {
-      return BigInteger.valueOf(this.addLongValue(uuid, Long.MIN_VALUE));
-    } else {
-      return BigInteger.valueOf(this.addLongValue(uuid, value.longValueExact()));
-    }
+  default BigInteger addBigIntValue(final UUID uuid, final BigInteger value) {
+    return BigInteger.valueOf(this.addLongValue(uuid, ConversionUtils.downSampleToLong(value)));
   }
 
   @Override
-  default BigDecimal addBigDecimalValue(UUID uuid, BigDecimal value) {
+  default BigDecimal addBigDecimalValue(final UUID uuid, final BigDecimal value) {
     return BigDecimal.valueOf(this.addDoubleValue(uuid, value.doubleValue()));
   }
 
