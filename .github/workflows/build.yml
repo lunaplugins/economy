@@ -31,5 +31,5 @@ jobs:
         with:
           path: |
             api/build/libs/*.jar
-            plugins/build/libs/*.jar
+            plugin/build/libs/*.jar
           if-no-files-found: error
