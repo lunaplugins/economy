@@ -1,10 +1,10 @@
-package dev.luna.economy;
+package dev.luna.economy.plugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
-class LunaEconomy extends JavaPlugin {
+class LunaEconomyPlugin extends JavaPlugin {
 
   @Override
   public void onEnable() {

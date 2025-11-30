@@ -6,4 +6,4 @@ description: A feature-rich economy plugin. Part of the Luna ecosystem ^-^
 author: Luna
 website: https://github.com/lunaplugins/economy
 
-main: dev.luna.economy.LunaEconomy
+main: dev.luna.economy.plugin.LunaEconomyPlugin
