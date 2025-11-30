@@ -12,3 +12,6 @@ tab_width = 4
 [{*.java,*.kts,*.yml}]
 indent_size = 2
 tab_width = 2
+
+[*.java]
+ij_java_doc_align_param_comments = false
