@@ -26,10 +26,14 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
+      - name: Copy build artifacts to common folder
+        run: |-
+          mkdir -p ./output
+          mv ./api/build/libs/*.jar ./output
+          mv ./plugin/build/libs/*.jar ./output
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: |
-            api/build/libs/*.jar
-            plugin/build/libs/*.jar
+          path: ./output
           if-no-files-found: error
