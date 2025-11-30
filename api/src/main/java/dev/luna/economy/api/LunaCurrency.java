@@ -31,18 +31,12 @@ import java.util.function.Supplier;
 /// All methods **have to be thread-safe**. If you require their completion inside a [CompletableFuture],
 /// it is safe to run them inside a [CompletableFuture#supplyAsync(Supplier)] for later use.
 @NullMarked
-public interface LunaCurrency extends Keyed {
+public interface LunaCurrency extends CurrencyPrecision, Keyed {
   /// The key of this currency. It has to be unique and is used
   /// to differentiate different currencies.
   ///
   /// @return the key of this currency
   Key key();
-
-  /// The type of this currency. This can be used to further
-  /// distinguish (and cast) this general interface.
-  ///
-  /// @return the type of this currency
-  CurrencyType<?> type();
 
   /// A utility method for retrieving a [UUID] from a [String], assuming the name
   /// is present in the database.
