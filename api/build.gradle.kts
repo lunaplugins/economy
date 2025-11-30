@@ -1,9 +1,12 @@
 plugins {
-  id("java-conventions")
+  id("luna.java-conventions")
+  id("luna.test-conventions")
 }
 
 dependencies {
   compileOnly("net.kyori:adventure-key:4.25.0")
   compileOnly("org.jspecify:jspecify:1.0.0")
   compileOnly("org.jetbrains:annotations:24.1.0")
+
+  testImplementation("net.kyori:adventure-key:4.25.0")
 }

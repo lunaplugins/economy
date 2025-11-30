@@ -60,7 +60,7 @@ public interface IntCurrency extends LunaCurrency {
 
   @Override
   default long addLongValue(final UUID uuid, final long value) {
-    return this.addIntValue(uuid, Math.clamp(value, Integer.MIN_VALUE, Integer.MAX_VALUE));
+    return ConversionUtils.downSampleToLong(this.addBigIntValue(uuid, BigInteger.valueOf(value)));
   }
 
   @Override
@@ -75,7 +75,8 @@ public interface IntCurrency extends LunaCurrency {
 
   @Override
   default BigInteger addBigIntValue(final UUID uuid, final BigInteger value) {
-    return BigInteger.valueOf(this.addIntValue(uuid, ConversionUtils.downSampleToInt(value)));
+    final BigInteger curr = this.bigIntValue(uuid);
+    return this.bigIntValue(uuid, curr.add(value));
   }
 
   @Override
