@@ -26,4 +26,4 @@ A modern and performant economy plugin!
    ./gradlew build
    ```
 
-The built plugin file will be located under `./build/libs`.
+The built plugin file will be located under `./plugin/build/libs`.
