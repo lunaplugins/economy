@@ -1,4 +1,4 @@
-package dev.luna.economy.api;
+package dev.lunaplugins.economy.api;
 
 public interface CurrencyPrecision {
   boolean isInteger();

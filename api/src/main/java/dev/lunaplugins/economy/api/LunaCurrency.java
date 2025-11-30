@@ -1,4 +1,4 @@
-package dev.luna.economy.api;
+package dev.lunaplugins.economy.api;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.key.Keyed;

@@ -1,6 +1,6 @@
-package dev.luna.economy.api.currencies;
+package dev.lunaplugins.economy.api.currencies;
 
-import dev.luna.economy.api.LunaCurrency;
+import dev.lunaplugins.economy.api.LunaCurrency;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

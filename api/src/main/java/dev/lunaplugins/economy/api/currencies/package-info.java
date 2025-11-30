@@ -1,4 +1,4 @@
 @NullMarked
-package dev.luna.economy.api;
+package dev.lunaplugins.economy.api.currencies;
 
 import org.jspecify.annotations.NullMarked;

@@ -9,3 +9,7 @@ java {
 repositories {
   maven("https://repo.papermc.io/repository/maven-public/")
 }
+
+tasks.withType<Jar> {
+  archiveBaseName = project.parent!!.name + "-" + project.name
+}

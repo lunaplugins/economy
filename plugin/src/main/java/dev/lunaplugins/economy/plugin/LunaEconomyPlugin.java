@@ -1,4 +1,4 @@
-package dev.luna.economy.plugin;
+package dev.lunaplugins.economy.plugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jspecify.annotations.NullMarked;
